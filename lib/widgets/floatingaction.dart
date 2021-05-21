@@ -7,7 +7,6 @@ Widget floatingActionButton(BuildContext context) {
     focusElevation: 0,
     hoverElevation: 0,
     highlightElevation: 0,
-    tooltip: "Add",
     onPressed: () => Navigator.pushNamed(
       context,
       '/add',

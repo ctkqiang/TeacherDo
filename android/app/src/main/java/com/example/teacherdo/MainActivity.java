@@ -1,4 +1,4 @@
-package com.example.teacherdo;
+package com.johnmelodyme.teacherdo;
 
 import io.flutter.embedding.android.FlutterActivity;
 

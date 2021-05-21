@@ -49,8 +49,8 @@ class DatabaseHelper {
         CONTENT TEXT NOT NULL,
         OBJECTIVE TEXT NOT NULL,
         MATERIALS TEXT NOT NULL,
-        STUDENTS NUMBER INT NOT NULL,
-        DATETIME TEXT NOT NULL,
+        STUDENTS INT NOT NULL,
+        DATETIME TEXT NOT NULL
       )
       ''',
     );

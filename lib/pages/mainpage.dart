@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:teacherdo/database/database.dart';
+
+import 'package:teacherdo/pages/noteslist.dart';
 import 'package:teacherdo/widgets/appbar.dart';
 import 'package:teacherdo/widgets/floatingaction.dart';
 
@@ -10,6 +13,8 @@ class MainPages extends StatefulWidget {
 }
 
 class _MainPagesState extends State<MainPages> {
+  DatabaseHelper database = DatabaseHelper();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +22,25 @@ class _MainPagesState extends State<MainPages> {
       floatingActionButton: floatingActionButton(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      body: FutureBuilder(
+        future: database.getNotes(),
+        builder: (context, snapshot) {
+          dynamic data = snapshot.data;
+
+          return (() {
+            if (snapshot.hasData) {
+              return DisplayNotes(notes: data);
+            } else {
+              return Center(
+                child: Text(
+                  "No Notes",
+                  style: TextStyle(color: Colors.black45),
+                ),
+              );
+            }
+          }());
+        },
+      ),
     );
   }
 }
